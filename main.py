@@ -6,7 +6,7 @@ app = FastAPI()
 
 client = OpenAI(api_key="YOUR_OPENAI_API_KEY")
 
-SHEET_URL = "https://opensheet.elk.sh/1Vd6DaCvOlnZ_omVG_xGSj6kUT5OUpt3JGE7jDBXEAsQ/Sheet1" 
+SHEET_URL = "https://opensheet.elk.sh/1Vd6DaCvOlnZ_omVG_xGSj6kUT5OUpt3JGE7jDBXEAsQ/Sheet1"
 
 class Message(BaseModel):
     prompt: str
