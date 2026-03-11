@@ -27,7 +27,7 @@ def ai_chat(message: Message):
     )
     return {"response": response.choices[0].message.content}
 
- @app.get("/games")
+@app.get("/games")
 def get_games():
     import requests
     response = requests.get(SHEET_URL)
