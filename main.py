@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from openai import OpenAI
+import requests
 
 app = FastAPI()
 
@@ -29,6 +30,5 @@ def ai_chat(message: Message):
 
 @app.get("/games")
 def get_games():
-    import requests
     response = requests.get(SHEET_URL)
     return response.json()
