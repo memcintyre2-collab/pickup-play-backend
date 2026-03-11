@@ -6,6 +6,8 @@ app = FastAPI()
 
 client = OpenAI(api_key="YOUR_OPENAI_API_KEY")
 
+SHEET_URL = "https://opensheet.elk.sh/1Vd6DaCvOlnZ_omVG_xGSj6kUT5OUpt3JGE7jDBXEAsQ/Sheet1" 
+
 class Message(BaseModel):
     prompt: str
 
@@ -23,5 +25,12 @@ def ai_chat(message: Message):
             {"role": "user", "content": message.prompt}
         ]
     )
+
+    @app.get("/games")
+def get_games():
+    import requests
+    response = requests.get(SHEET_URL)
+    return response.json()
+
 
     return {"response": response.choices[0].message.content}
